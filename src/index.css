@@ -2,6 +2,10 @@
   margin-bottom: 30px;
   margin-top: 20px;
 }
+
+.header h1 {
+  margin: 20px 0;
+}
 .header .nav {
   background-color: black;
   height: 50px;

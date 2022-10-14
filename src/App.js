@@ -1,8 +1,11 @@
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Table from "react-bootstrap/Table";
-
+import {
+  Container,
+  Row,
+  Col,
+  Table,
+  Button,
+  ButtonGroup,
+} from "react-bootstrap";
 import Header from "./components/Header";
 
 function App() {
@@ -14,16 +17,21 @@ function App() {
           <Table striped bordered hover>
             <thead>
               <tr>
-                <th style={{ width: "10%" }}>#</th>
-                <th>Title</th>
-                <th></th>
+                <th>#</th>
+                <th style={{ width: "70%" }}>Title</th>
+                <th style={{ width: "10%" }}></th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td></td>
+                <td>#1</td>
+                <td>this is title 1</td>
+                <td>
+                  <ButtonGroup aria-label="Basic example">
+                    <Button variant="success">Edit</Button>
+                    <Button variant="danger">Delete</Button>
+                  </ButtonGroup>
+                </td>
               </tr>
             </tbody>
           </Table>

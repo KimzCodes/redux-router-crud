@@ -1,3 +1,10 @@
+# first run ths following command
+
+npm i 
+
+to insall all libraries
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

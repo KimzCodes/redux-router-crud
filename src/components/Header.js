@@ -11,6 +11,7 @@ const Header = () => {
         <li>
           <a href="/">Add Post</a>
         </li>
+        <li className="login">login</li>
       </ul>
     </div>
   );

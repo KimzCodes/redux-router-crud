@@ -1,9 +1,8 @@
 # first run ths following command
 
-npm i 
+npm i
 
-to insall all libraries
-
+to install all libraries
 
 # Getting Started with Create React App
 

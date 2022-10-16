@@ -1,6 +1,7 @@
-import React from "react";
+import { useEffect } from "react";
 
 const Details = () => {
+  useEffect(() => {}, []);
   return <div>Details</div>;
 };
 

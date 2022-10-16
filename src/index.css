@@ -28,6 +28,10 @@
   text-decoration: none;
 }
 
+.header .nav .active {
+  text-decoration: underline;
+}
+
 .login {
   color: white;
   font-size: 16px;

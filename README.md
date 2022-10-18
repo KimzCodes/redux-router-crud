@@ -4,6 +4,10 @@ npm i
 
 to install all libraries
 
+# json server
+
+for testing please use json server, and create endf point with name posts, and fields will be (id, title, description, user_id)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -8,7 +8,7 @@ import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import RootLayout from "./pages/RootLayout";
-import Add from "./pages/Add";
+import AddPost from "./pages/AddPost";
 import Edit from "./pages/Edit";
 import Details from "./pages/Details";
 import Index from "./pages/Index";
@@ -22,7 +22,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Index /> },
       { path: "post", element: <Index /> },
-      { path: "post/add", element: <Add /> },
+      { path: "post/add", element: <AddPost /> },
       {
         path: "post/:id",
         element: <Details />,

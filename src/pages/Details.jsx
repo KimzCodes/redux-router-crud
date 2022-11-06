@@ -3,7 +3,7 @@ import Loading from "../components/Loading";
 
 const Details = () => {
   const { loading, error, record } = usePostDetails();
-  console.log(record);
+
   return (
     <div>
       <Loading loading={loading} error={error}>

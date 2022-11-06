@@ -9,10 +9,19 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import RootLayout from "./pages/RootLayout";
 import AddPost from "./pages/AddPost";
-import Edit from "./pages/Edit";
+import EditPost from "./pages/EditPost";
 import Details from "./pages/Details";
 import Index from "./pages/Index";
 import ErrorPage from "./pages/ErrorPage";
+
+const postParamHandler = ({ params }) => {
+  if (isNaN(params.id)) {
+    throw new Response("Bad Request", {
+      statusText: "please make sure to insert correct post ID",
+      status: 400,
+    });
+  }
+};
 
 const router = createBrowserRouter([
   {
@@ -26,16 +35,13 @@ const router = createBrowserRouter([
       {
         path: "post/:id",
         element: <Details />,
-        loader: ({ params }) => {
-          if (isNaN(params.id)) {
-            throw new Response("Bad Request", {
-              statusText: "please make sure to insert correct post ID",
-              status: 400,
-            });
-          }
-        },
+        loader: postParamHandler,
       },
-      { path: "post/:id/edit", element: <Edit /> },
+      {
+        path: "post/:id/edit",
+        element: <EditPost />,
+        loader: postParamHandler,
+      },
     ],
   },
 ]);

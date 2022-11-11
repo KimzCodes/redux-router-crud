@@ -165,5 +165,5 @@ const postSlice = createSlice({
     },
   },
 });
-
+export const { cleanRecord } = postSlice.actions;
 export default postSlice.reducer;

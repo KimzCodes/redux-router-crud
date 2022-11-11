@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import usePostDetails from "../hooks/use-post-details";
 import { useDispatch } from "react-redux";
 import { editPost } from "../state/postSlice";
@@ -13,6 +14,12 @@ const EditPost = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { loading, error, record } = usePostDetails();
+
+  useEffect(() => {
+    return () => {
+      dispatch({ type: "posts/cleanRecord" });
+    };
+  }, [dispatch]);
 
   const formik = useFormik({
     initialValues: {

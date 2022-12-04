@@ -5,9 +5,9 @@ const withGuard = (Component) => {
     const { isLoggedIn } = useSelector((state) => state.auth);
 
     return isLoggedIn ? (
-      <Component {...props} age="30" />
+      <Component {...props} />
     ) : (
-      <div>Please login first!</div>
+      <div>Please logg in first!</div>
     );
   };
   return Wrapper;

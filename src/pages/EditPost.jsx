@@ -15,12 +15,24 @@ const EditPost = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
+  //record bending null
+  //record false / title true /  description true x
+
+  //record full filled
+  //record true / title true /  description true x
+
   useEffect(() => {
-    if (record && !title && !description) {
+    if (record) {
       setTitle(record?.title);
       setDescription(record?.description);
     }
-  }, [record, title, description]);
+  }, [record]);
+
+  useEffect(() => {
+    return () => {
+      dispatch({ type: "posts/cleanRecord" });
+    };
+  }, [dispatch]);
 
   const formHandler = (e) => {
     e.preventDefault();

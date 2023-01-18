@@ -7,7 +7,7 @@ export const fetchPosts = createAsyncThunk(
   async (_, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
-      const res = await fetch("http://localhost:5000/posts");
+      const res = await fetch("http://localhost:5001/posts");
       const data = await res.json();
       return data;
     } catch (error) {
@@ -21,7 +21,7 @@ export const fetchPost = createAsyncThunk(
   async (id, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
-      const res = await fetch(`http://localhost:5000/posts/${id}`);
+      const res = await fetch(`http://localhost:5001/posts/${id}`);
       const data = await res.json();
       return data;
     } catch (error) {
@@ -35,7 +35,7 @@ export const deletePost = createAsyncThunk(
   async (id, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
-      await fetch(`http://localhost:5000/posts/${id}`, {
+      await fetch(`http://localhost:5001/posts/${id}`, {
         method: "DELETE",
       });
       return id;
@@ -53,7 +53,7 @@ export const insertPost = createAsyncThunk(
     item.userId = auth.id;
 
     try {
-      const res = await fetch("http://localhost:5000/posts", {
+      const res = await fetch("http://localhost:5001/posts", {
         method: "POST",
         body: JSON.stringify(item),
         headers: {
@@ -73,7 +73,7 @@ export const editPost = createAsyncThunk(
   async (item, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
-      const res = await fetch(`http://localhost:5000/posts/${item.id}`, {
+      const res = await fetch(`http://localhost:5001/posts/${item.id}`, {
         method: "PATCH",
         body: JSON.stringify(item),
         headers: {
@@ -91,13 +91,16 @@ export const editPost = createAsyncThunk(
 const postSlice = createSlice({
   name: "posts",
   initialState,
-  reducers: {},
+  reducers: {
+    cleanRecord: (state) => {
+      state.record = null;
+    },
+  },
   extraReducers: {
     //get post
     [fetchPost.pending]: (state) => {
       state.loading = true;
       state.error = null;
-      state.record = null;
     },
     [fetchPost.fulfilled]: (state, action) => {
       state.loading = false;

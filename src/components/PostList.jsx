@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
+import React, { memo, useEffect } from "react";
 import {
   Table,
 
 } from "react-bootstrap";
 import PostListItem from "./PostListItem";
 
-function PostList({ data}) {
+function PostList({ data, deletePosts}) {
   
 
   return (
@@ -17,9 +17,9 @@ function PostList({ data}) {
           <th style={{ width: "10%" }}></th>
         </tr>
       </thead>
-      <PostListItem data={data} />
+      <PostListItem data={data} deletePost={deletePosts} />
     </Table>
   );
 }
 
-export default PostList;
+export default memo(PostList);

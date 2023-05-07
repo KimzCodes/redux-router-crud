@@ -21,7 +21,7 @@ export const deletePosts = createAsyncThunk(
   async (data, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
-      await fetch(`http://localhost:3008/posts${data.id}`,{
+      await fetch(`http://localhost:3008/posts/${data.id}`,{
         method: "DELETE",
         
       })
@@ -72,8 +72,22 @@ const postSlice = createSlice({
       console.log(action.payload);
       state.error=action.payload;
     });
-  },
-});
+
+    // Delete posts
+    builder.addCase(deletePosts.pending,(state)=>{
+      state.loading = true
+      state.error = null
+    });
+    builder.addCase(deletePosts.fulfilled,(state, action)=>{
+      state.loading = false
+      console.log(action.payload);
+     state.posts= state.posts.filter(post => post.id !== action.payload.id)
+    })
+    builder.addCase(deletePosts.rejected,(state, action)=>{
+      state.loading=false
+      state.error = action.payload
+    })
+}});
 
 // export const { increment, decrement, incrementByAmount } = postSlice.actions
 

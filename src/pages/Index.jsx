@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import PostList from '../components/PostList'
 import { useDispatch ,useSelector  } from 'react-redux';
-import { fetchPosts } from '../state/postSlice';
+import { fetchPosts, deletePosts } from '../state/postSlice';
 import Loading from '../components/Loading';
 
 function Index() {
@@ -10,10 +10,16 @@ function Index() {
   useEffect(()=>{
     dispatch(fetchPosts())
   }, [])
+
+  // const deletePosts = useCallback()
+   // Define a callback function using useCallback
+   const deletePost = useCallback((id) => {
+    dispatch(deletePosts(id));
+  }, [dispatch]);
   console.log(posts);
   return (
     <Loading error={error} loading={loading}>
-    <PostList data={posts}  />
+    <PostList data={posts}   deletePosts={deletePost}/>
     </Loading>
     
   )

@@ -17,7 +17,9 @@ function PostList({ data, deletePosts}) {
           <th style={{ width: "10%" }}></th>
         </tr>
       </thead>
+      <tbody>
       <PostListItem data={data} deletePost={deletePosts} />
+      </tbody>
     </Table>
   );
 }
